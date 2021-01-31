@@ -1,0 +1,21 @@
+ekspor USER = root
+ekspor HOME = / root
+
+case `uname -m` in
+	aarch64)
+		archurl = "aarch64" ;;
+	lengan*)
+		archurl = "lengan" ;;
+	amd64)
+		archurl = "x86_64" ;;
+	x86_64)
+		archurl = "x86_64" ;;	
+	saya * 86)
+		archurl = "i386" ;;
+	x86)
+		archurl = "i386" ;;
+	*)
+		echo "arsitektur tidak dikenal"; keluar 1 ;;
+	esac
+
+LD_PRELOAD = / lib / $ {archurl} -linux-gnu / libgcc_s.so.1 vncserver -geometry 1024x768 -dalam 24-nama remote-desktop: 1
